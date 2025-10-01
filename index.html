@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meu Portfólio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+            color: #222;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #222;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .projeto {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 1rem;
+            transition: box-shadow 0.2s;
+        }
+        .projeto:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .projeto h3 {
+            margin-top: 0;
+            color: #222;
+        }
+        .projeto p {
+            margin-bottom: 0.5rem;
+        }
+        .projeto a {
+            color: #0077cc;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .projeto a:hover {
+            text-decoration: underline;
+        }
+        .btn-contato {
+            display: inline-block;
+            background: #ffd700;
+            color: #222;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+        .btn-contato:hover {
+            background: #ffe066;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: #222;
+            color: #fff;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Seu Nome</h1>
+        <p>Desenvolvedor Web | Frontend & Backend</p>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>
+                Olá! Sou um desenvolvedor apaixonado por tecnologia, com experiência em HTML, CSS, JavaScript e outras ferramentas modernas. Gosto de criar soluções criativas e funcionais para web.
+            </p>
+        </section>
+        <section id="projetos">
+            <h2>Projetos</h2>
+            <div class="projetos">
+                <div class="projeto">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição breve do projeto 1.</p>
+                    <a href="#" target="_blank">Ver mais</a>
+                </div>
+                <div class="projeto">
+                    <h3>Projeto 2</h3>
+                    <p>Descrição breve do projeto 2.</p>
+                    <a href="#" target="_blank">Ver mais</a>
+                </div>
+                <div class="projeto">
+                    <h3>Projeto 3</h3>
+                    <p>Descrição breve do projeto 3.</p>
+                    <a href="#" target="_blank">Ver mais</a>
+                </div>
+            </div>
+        </section>
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato comigo pelo e-mail: <span id="email">seuemail@exemplo.com</span></p>
+            <a href="#" class="btn-contato" id="copiarEmail">Copiar E-mail</a>
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 Seu Nome. Todos os direitos reservados.
+    </footer>
+    <script>
+        // Rolagem suave para seções
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Copiar e-mail para área de transferência
+        document.getElementById('copiarEmail').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                this.textContent = 'Copiado!';
+                setTimeout(() => {
+                    this.textContent = 'Copiar E-mail';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
